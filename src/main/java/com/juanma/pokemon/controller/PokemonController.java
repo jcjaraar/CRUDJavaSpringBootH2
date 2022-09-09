@@ -1,7 +1,7 @@
 package com.juanma.pokemon.controller;
 
 import com.juanma.pokemon.model.Pokemon;
-import com.juanma.pokemon.repository.PokemonService;
+import com.juanma.pokemon.service.PokemonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,12 +18,17 @@ public class PokemonController {
         return pokemonService.verPokemon();
     }
 
+    @GetMapping("/pokemon/{id}")
+    private Pokemon verPokemonPorId(@PathVariable("id") Long id){
+        return pokemonService.verPokemonPorId(id);
+    }
+
     @PostMapping("/pokemon")
     private void crearPokemon(@RequestBody Pokemon pokemon){
         pokemonService.crearYActualizarPokemon(pokemon);
     }
 
-    @DeleteMapping("/pokemon/{id}")
+    @DeleteMapping("pokemon/{id}")
     private void eliminarPokemon(@PathVariable("id") Long id){
         pokemonService.eliminarPokemon(id);
     }

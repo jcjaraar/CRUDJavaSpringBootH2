@@ -1,6 +1,7 @@
 package com.juanma.pokemon.controller;
 
 import com.juanma.pokemon.model.Entrenador;
+import com.juanma.pokemon.model.Pokemon;
 import com.juanma.pokemon.service.EntrenadorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +17,11 @@ public class EntrenadorController {
     @GetMapping("/entrenador")
     private List<Entrenador> verEntrenador(){
         return entrenadorService.verEntrenador();
+    }
+
+    @GetMapping("/entrenador/{id}")
+    private Entrenador verEntrenadorPorId(@PathVariable("id") Long id){
+        return entrenadorService.verEntrenadorPorId(id);
     }
 
     @PostMapping("/entrenador")

@@ -38,7 +38,7 @@ public class Pokemon {
     @Column(name = "tipo", nullable = false)
     private Enum_Tipo tipo;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "entrenador_id")
     private Entrenador entrenador;
 

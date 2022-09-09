@@ -30,10 +30,6 @@ public class Entrenador {
     @Column(name = "edad", nullable = false)
     private int edad;
 
-    @OneToMany(mappedBy = "entrenador", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JsonManagedReference
-    private List<Pokemon> pokemons = new ArrayList<>();
-
     @CreationTimestamp
     @Column(name = "fecha_creacion")
     private LocalDateTime fechaCreacion;

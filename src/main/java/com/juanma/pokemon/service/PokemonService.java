@@ -1,6 +1,8 @@
-package com.juanma.pokemon.repository;
+package com.juanma.pokemon.service;
 
+import com.juanma.pokemon.model.Entrenador;
 import com.juanma.pokemon.model.Pokemon;
+import com.juanma.pokemon.repository.PokemonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,9 +20,11 @@ public class PokemonService {
     }
 
     public List<Pokemon> verPokemon(){
-        List<Pokemon> pokemons = new ArrayList<Pokemon>();
-        pokemons.addAll(pokemonRepository.findAll());
-        return pokemons;
+        return pokemonRepository.findAll();
+    }
+
+    public Pokemon verPokemonPorId(Long id) {
+        return pokemonRepository.findById(id).get();
     }
 
     public void eliminarPokemon(Long id){

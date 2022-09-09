@@ -19,9 +19,11 @@ public class EntrenadorService {
     }
 
     public List<Entrenador> verEntrenador(){
-        List<Entrenador> entrenadors = new ArrayList<Entrenador>();
-        entrenadors.addAll(entrenadorRepository.findAll());
-        return entrenadors;
+        return entrenadorRepository.findAll();
+    }
+
+    public Entrenador verEntrenadorPorId(Long id) {
+        return entrenadorRepository.findById(id).get();
     }
 
     public void eliminarEntrenador(Long id){
