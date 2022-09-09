@@ -1,12 +1,14 @@
 package com.juanma.pokemon.model;
 
-import com.juanma.pokemon.enums.Enum_Tipo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
@@ -14,8 +16,8 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @ToString
-@Table(name = "pokemon")
-public class Pokemon {
+@Table(name = "entrenador")
+public class Entrenador {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,22 +27,12 @@ public class Pokemon {
     @Column(name = "nombre", nullable = false, unique = true, length = 50)
     private String nombre;
 
-    @Column(name = "vida", nullable = false)
-    private int vida;
+    @Column(name = "edad", nullable = false)
+    private int edad;
 
-    @Column(name = "defensa", nullable = false)
-    private int defensa;
-
-    @Column(name = "ataque", nullable = false)
-    private int ataque;
-
-    @Enumerated(EnumType.STRING)
-    @Column(name = "tipo", nullable = false)
-    private Enum_Tipo tipo;
-
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "entrenador_id")
-    private Entrenador entrenador;
+    @OneToMany(mappedBy = "entrenador", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonManagedReference
+    private List<Pokemon> pokemons = new ArrayList<>();
 
     @CreationTimestamp
     @Column(name = "fecha_creacion")
