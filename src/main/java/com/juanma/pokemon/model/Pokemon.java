@@ -38,10 +38,6 @@ public class Pokemon {
     @Column(name = "tipo", nullable = false)
     private Enum_Tipo tipo;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "entrenador_id")
-    private Entrenador entrenador;
-
     @CreationTimestamp
     @Column(name = "fecha_creacion")
     private LocalDateTime fechaCreacion;

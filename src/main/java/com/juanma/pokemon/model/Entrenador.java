@@ -30,6 +30,9 @@ public class Entrenador {
     @Column(name = "edad", nullable = false)
     private int edad;
 
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Pokemon> pokemons;
+
     @CreationTimestamp
     @Column(name = "fecha_creacion")
     private LocalDateTime fechaCreacion;
