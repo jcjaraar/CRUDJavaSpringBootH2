@@ -5,33 +5,24 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../static/css/styles.css">
     <title>Document</title>
 </head>
 <body>
-    <div th:switch="${users}">
-        <h2 th:case="null">No users yet!</h2>
-        <div th:case="*">
-            <h2>Users</h2>
-            <table>
-                <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="user : ${users}">
-                    <td th:text="${user.name}"></td>
-                    <td th:text="${user.email}"></td>
-                    <td><a th:href="@{/edit/{id}(id=${user.id})}">Edit</a></td>
-                    <td><a th:href="@{/delete/{id}(id=${user.id})}">Delete</a></td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-        <p><a href="/signup">Add a new user</a></p>
-    </div>
+<section class="contenedor-principal">
+    <section class="contenedor-login">
+
+        <figure>
+            <img src="https://lms.misiontic2022udea.com/pluginfile.php/1/core_admin/logo/0x200/1654218085/ingenia.png" alt="">
+        </figure>
+
+        <form action="" class="contenedor-formulario">
+            <input type="text" placeholder="Nombre de Usuario">
+            <input type="password" placeholder="Contraseña">
+            <button type="submit">ACCEDER</button>
+        </form>
+
+    </section>
+</section>
 </body>
 </html>
