@@ -1,4 +1,4 @@
-body {
+.contenedor-imagen-background {
     background-image: url(https://lms.misiontic2022udea.com/theme/image.php/misiontic/theme/1654218085/bg-login-mision-tic);
     height: 100vh;
     background-size: contain;
@@ -29,4 +29,20 @@ body {
     margin: 15px;
     font-weight: bold;
     border-radius: 5px;
+}
+
+.table th {
+    background-color: yellow;
+}
+
+.table tr:nth-child(odd) {
+    background-color: grey;
+}
+
+.table tr:nth-child(even) {
+    background-color: pink;
+}
+
+tr td:hover {
+    background: #666; color: #FFF;
 }

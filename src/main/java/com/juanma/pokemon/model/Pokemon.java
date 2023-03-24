@@ -34,6 +34,9 @@ public class Pokemon {
     @Column(name = "ataque", nullable = false)
     private int ataque;
 
+    @ManyToOne
+    private Entrenador entrenador;
+
     @Enumerated(EnumType.STRING)
     @Column(name = "tipo", nullable = false)
     private Enum_Tipo tipo;

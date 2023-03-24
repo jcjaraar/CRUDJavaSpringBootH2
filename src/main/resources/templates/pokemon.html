@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <title>Listado Pokemon</title>
+</head>
+<body>
+  Pagina para listar pokemones
+
+    <table class="table" align="center" cellpadding="1" cellspacing="1" border="1">
+        <tr class="table tr">
+            <th>nombre</th>
+            <th>vida</th>
+            <th>defensa</th>
+            <th>ataque</th>
+            <th>tipo</th>
+            <th>editar</th>
+            <th>borrar</th>
+        </tr>
+        <tr th:each="pokemon : ${pokemons}" class="nth-child">
+            <td th:text="${pokemon.nombre}"/>
+            <td th:text="${pokemon.vida}"/>
+            <td th:text="${pokemon.defensa}"/>
+            <td th:text="${pokemon.ataque}"/>
+            <td th:text="${pokemon.tipo}"/>
+            <td th:text="${pokemon.entrenador.nombre}"/>
+
+             <td><a th:href="@{/pokemon/editar/{id} (id=${pokemon.id})}">✍</a> </td>
+            <td><a th:href="@{/pokemon/borrar/{id} (id=${pokemon.id})}">❌</a> </td>
+        </tr>
+    </table>
+
+    <a href="/agregar-pokemon">Agregar nuevo Pokemon</a>
+</body>
+</html>

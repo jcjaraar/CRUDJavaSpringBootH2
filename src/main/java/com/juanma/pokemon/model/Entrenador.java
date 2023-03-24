@@ -1,14 +1,11 @@
 package com.juanma.pokemon.model;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @AllArgsConstructor
@@ -29,9 +26,6 @@ public class Entrenador {
 
     @Column(name = "edad", nullable = false)
     private int edad;
-
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<Pokemon> pokemons;
 
     @CreationTimestamp
     @Column(name = "fecha_creacion")

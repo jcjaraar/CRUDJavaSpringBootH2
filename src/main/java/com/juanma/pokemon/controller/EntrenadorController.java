@@ -4,6 +4,7 @@ import com.juanma.pokemon.model.Entrenador;
 import com.juanma.pokemon.model.Pokemon;
 import com.juanma.pokemon.service.EntrenadorService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,19 +20,19 @@ public class EntrenadorController {
         return entrenadorService.verEntrenador();
     }
 
-    @GetMapping("/entrenador/{id}")
-    private Entrenador verEntrenadorPorId(@PathVariable("id") Long id){
-        return entrenadorService.verEntrenadorPorId(id);
-    }
-
     @PostMapping("/entrenador")
     private void crearEntrenador(@RequestBody Entrenador entrenador){
         entrenadorService.crearYActualizarEntrenador(entrenador);
     }
 
-    @DeleteMapping("/entrenador/{id}")
+    @DeleteMapping("entrenador/{id}")
     private void eliminarEntrenador(@PathVariable("id") Long id){
         entrenadorService.eliminarEntrenador(id);
+    }
+
+    @GetMapping("/entrenador/{id}")
+    private Entrenador verEntrenadorPorId(@PathVariable("id") Long id){
+        return entrenadorService.verEntrenadorPorId(id);
     }
 
     @PutMapping("/entrenador")
